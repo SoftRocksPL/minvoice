@@ -1,5 +1,5 @@
 FROM python:3.4.3
-MAINTAINER Filipe Garcia <filipe.garcia@seedstarslabs.com>
+MAINTAINER Kathy Adamska <kadamska@softrocks.pl>
 
 ENV PYTHONUNBUFFERED 1
 

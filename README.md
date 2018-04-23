@@ -1,10 +1,6 @@
-[![Build Status](https://travis-ci.org/Seedstars/django-react-redux-base.svg?branch=master)](https://travis-ci.org/Seedstars/django-react-redux-base)
+# Minvoice Project
 
-# Django React/Redux Base Project
-
-This repository includes a boilerplate project used for all Seedstars Labs applications. It uses Django as backend and React as frontend.
-
-We build on the shoulders of giants with the following technologies:
+This repository includes a boilerplate project used by Seedstars Labs. It uses Django as backend and React as frontend.
 
 **Frontend**
 
@@ -14,7 +10,7 @@ We build on the shoulders of giants with the following technologies:
 * [Webpack](http://webpack.github.io) for bundling
 * [Webpack Dev Middleware](http://webpack.github.io/docs/webpack-dev-middleware.html)
 * [Clean Webpack Plugin](https://github.com/johnagan/clean-webpack-plugin)
-* [Redux](https://github.com/reactjs/redux) Predictable state container for JavaScript apps 
+* [Redux](https://github.com/reactjs/redux) Predictable state container for JavaScript apps
 * [Redux Dev Tools](https://github.com/gaearon/redux-devtools) DevTools for Redux with hot reloading, action replay, and customizable UI. Watch [Dan Abramov's talk](https://www.youtube.com/watch?v=xsSnOQynTHs)
 * [Redux Thunk](https://github.com/gaearon/redux-thunk) Thunk middleware for Redux - used in async actions
 * [React Router Redux](https://github.com/reactjs/react-router-redux) Ruthlessly simple bindings to keep react-router and redux in sync
@@ -43,63 +39,12 @@ We build on the shoulders of giants with the following technologies:
 * [Mock](http://www.voidspace.org.uk/python/mock/) mocking and testing Library
 * [Responses](https://github.com/getsentry/responses) a utility for mocking out the Python Requests library
 
-
 ## Readme Notes
 
 * If the command line starts with $, the command should run with user privileges
 * If the command line starts with #, the command should run with root privileges
 
-
-## Retrieve code
-
-* `$ git clone https://github.com/seedstars/django-react-redux-base.git`
-* `$ cd django-react-redux-base`
-* `$ git submodule init`
-* `$ git submodule update`
-* `$ ./scripts/get_static_validation.sh`
-
-
-Remember that when you copy this repository for a new project you need to add the scripts external module using:
-
-* `$ git submodule add https://github.com/Seedstars/culture-scripts scripts`
-
-NOTE: This is only needed in case you copy this code to a new project. If you only clone or fork the repository, the submodule is already configured
-
-
-## Installation
-
-You have two ways of running this project: Using the Dockers scripts or running directly in the console.
-
-### Running NO DOCKER
-
-**NodeJS tooling**
-
-* `$ wget -qO- https://deb.nodesource.com/setup_6.x | sudo bash -`
-* `$ apt-get install --yes nodejs`
-* `$ curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -`
-* `$ echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list`
-* `$ sudo apt-get update && sudo apt-get install yarn`
-
-**Compile and run project**
-
-There are commands you need to compile javascript and run project. Ideally `yarn run dev` should be run in another console because it blocks it.
-
-* `$ yarn `
-* `$ yarn run dev`  # will run webpack with watch and compile code as it changes
-
-* `$ virtualenv -p /usr/bin/python3 virtualenv`
-* `$ source virtualenv/bin/activate`
-* `$ pip install -r py-requirements/dev.txt`
-
-* `$ cd src`
-* `$ python manage.py migrate`
-* `$ python manage.py loaddata fixtures.json`
-* `$ python manage.py runserver`
-
-Then open your browser the page: http://localhost:8000/ If all goes ok you should see a React single page app. 
-
-
-### Running DOCKER
+## Installation - Running Docker
 
 We use Docker as a development environment. For production, we leave you to set it up the way you feel better,
 although it is trivial to extrapolate a production environment from the current docker-compose.yml.
@@ -119,18 +64,16 @@ Stop Docker development server and remove containers, networks, volumes, and ima
 You can access shell in a container
 
 * `$ docker ps  # get the name from the list of running containers`
-* `$ docker exec -i -t djangoreactreduxbase_frontend_1 /bin/bash`
+* `$ docker exec -it minvoicebase_frontend_1 /bin/bash`
 
-The database can be accessed @localhost:5433
+The database can be accessed @localhost:5533
 
-* `$ psql -h localhost -p 5433 -U djangoreactredux djangoreactredux_dev`
-
+* `$ psql -h localhost -p 5533 -U minvoice minvoice_dev`
 
 ## Accessing Website
 
-The project has CORS enabled and the URL is hard-coded in javascript to http://localhost:8000 
+The project has CORS enabled and the URL is hard-coded in javascript to http://localhost:8001
 For login to work you will to use this URL in your browser.
-
 
 ## Testing
 
@@ -148,7 +91,6 @@ Please take into account that test_local_backend.sh runs py.test with `--nomigra
 
 ### Static analysis
 
-
 Frontend (javascript static analysis)
 
 * `$ ./scripts/static_validate_frontend.sh`
@@ -159,24 +101,9 @@ Backend (django/python static analysis)
 
 ## Deployment in Production
 
-We deploy all our production code using Kubernetes. Explaining how to do deployments is beyond the scope of this boilerplate. 
+We deploy all our production code using Kubernetes. Explaining how to do deployments is beyond the scope of this boilerplate.
 
-Here's a great article from digital ocean on how to deploy django project in a VM: https://www.digitalocean.com/community/tutorials/how-to-set-up-django-with-postgres-nginx-and-gunicorn-on-ubuntu-16-04 
-
-
-
-## Screenshots
-
-Here are some screenshots of the boilerplate project.
-
-![Screenshot01][1]  
-
-[1]: ./screenshots/screenshot_01.png
-
-![Screenshot02][2]  
-
-[2]: ./screenshots/screenshot_02.png
-
+Here's a great article from digital ocean on how to deploy django project in a VM: https://www.digitalocean.com/community/tutorials/how-to-set-up-django-with-postgres-nginx-and-gunicorn-on-ubuntu-16-04
 
 ## Gotchas in Docker
 
@@ -184,15 +111,3 @@ Here are some screenshots of the boilerplate project.
 * The development server takes longer than the django server to start, as it has to install the javascript dependencies (if not already installed) and fire webpack. This means that after the django server starts, you should wait that webpack finishes compiling the .js files.
 * If your IDE has builtin language support for python with auto-imports (e.g. PyCharm), you can create a virtualenv and install the py-requirements.
 * If you are annoyed by docker creating files belonging to root (which is Docker's intended behaviour), you can run `# chown -hR $(whoami) .` before firing up the server.
-
-
-## Contributing
-
-We welcome contributions from the community, given that they respect these basic guidelines:
-
-* All Tests & Static Analysis passing;
-* 100% code coverage;
-
-Prior to any pull-request, we advise to [open an issue](https://github.com/Seedstars/django-react-redux-base/issues). This is because, although we are happy to merge your code, we must make sure the changes don't impact our way of doing things, thus resulting on a declined PR, and your time wasted.
-
-If you want to tackle any open issue, well..... Just go for it! :)

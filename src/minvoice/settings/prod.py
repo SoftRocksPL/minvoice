@@ -1,4 +1,4 @@
-from djangoreactredux.settings.base import *  # NOQA (ignore all errors on this line)
+from minvoice.settings.base import *  # NOQA (ignore all errors on this line)
 
 
 DEBUG = False
@@ -12,11 +12,11 @@ ALLOWED_HOSTS = ['*']
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'djangoreactredux_prod',
-        'USER': 'djangoreactredux',
+        'NAME': 'minvoice_prod',
+        'USER': 'minvoice',
         'PASSWORD': 'password',
         'HOST': 'postgres',
-        'PORT': 5432,
+        'PORT': 5532,
     }
 }
 

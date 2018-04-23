@@ -1,7 +1,7 @@
 {
-  "name": "django-react-redux-base",
+  "name": "minvoice",
   "version": "1.0.0",
-  "description": "Django, React and Redux!",
+  "description": "Invoicing with minimal effort",
   "scripts": {
     "dev": "webpack --progress --display-error-details --config webpack/common.config.js --watch",
     "prod": "webpack --progress -p --config webpack/common.config.js",
@@ -15,7 +15,7 @@
     "type": "git",
     "url": "git+https://github.com/Seedstars/django-react-redux-base.git"
   },
-  "author": "Luis Rodrigues <luis.rodrigues@seedstarslabs.com>",
+  "author": "Kathy Adamska <kadamska@softrocks.pl>",
   "license": "MIT",
   "dependencies": {
     "autoprefixer": "7.1.2",

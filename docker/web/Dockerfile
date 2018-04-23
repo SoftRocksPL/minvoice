@@ -1,5 +1,5 @@
 FROM ubuntu:14.04
-MAINTAINER Filipe Garcia <filipe.garcia@seedstarslabs.com>
+MAINTAINER Kathy Adamska <kadamska@softrocks.pl>
 
 COPY ./docker/web/web-entrypoint.sh /
 COPY ./package.json /django/package.json
