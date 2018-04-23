@@ -8,5 +8,5 @@ COPY ./py-requirements /django/py-requirements
 
 WORKDIR /django
 
-RUN pip install pip==9.0.1
+RUN pip install pip==10.0.1
 RUN pip install -r py-requirements/dev.txt

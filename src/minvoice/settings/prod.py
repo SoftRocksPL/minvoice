@@ -16,7 +16,7 @@ DATABASES = {
         'USER': 'minvoice',
         'PASSWORD': 'password',
         'HOST': 'postgres',
-        'PORT': 5532,
+        'PORT': 5432,
     }
 }
 
